@@ -9,11 +9,11 @@ axiosInstance.interceptors.request.use(request =>{
     return request
 })
 
-const getAllUsers = async ():Promise<IUser[]>=>{
-    return await axiosInstance.get<IUser[]>('/users').then((response) =>response.data)
+const getAllUsers = async ():Promise<{users:IUser[]}>=>{
+    return await axiosInstance.get('/users').then((response) =>response.data)
 }
-const getPostsOfUserById = async (id:number):Promise<IPosts[]>=>{
-    return await axiosInstance.get<IPosts[]>(`/users/${id}/posts/`).then((response) =>response.data)
+const getPostsOfUserById = async (id:number):Promise<{posts:IPosts[]}>=>{
+    return await axiosInstance.get(`/users/${id}/posts/`).then((response) =>response.data)
 }
 export {getAllUsers, getPostsOfUserById}
 
