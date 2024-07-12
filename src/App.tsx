@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import './App.css';
-import UserComponent from "./component/userComponent";
+import UsersComponent from "./component/usersComponent";
 
 
 
@@ -8,7 +8,8 @@ const App = () => {
 
   return (
       <div>
-          <UserComponent id={2}/>
+          <UsersComponent/>
+
       </div>
   );
 }
