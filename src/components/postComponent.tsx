@@ -7,12 +7,12 @@ import {IPosts} from "../model/IPosts";
 
 
 const PostComponent:FC<PostProps> = ({post}) => {
-     const {userId,id,title,body} = post;
+     const {userId,title,body} = post;
     return (
         <div>
                 <div>
                     <p><strong>User Id:</strong> {userId}</p>
-                    <p><strong>ID:</strong> {id}</p>
+                    {/*<p><strong>ID:</strong> {id}</p>*/}
                     <p><strong>Title:</strong> {title}</p>
                     <p><strong>Body:</strong> {body}</p>
                 </div>))

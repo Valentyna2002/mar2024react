@@ -13,11 +13,10 @@ const App = () => {
 
   return (
       <div>
-          <FormComponent setTrigger={setTrigger} setNewPost={setNewPost}/>
-          {newPost && <PostComponent post={newPost} />}
+          <FormComponent setTrigger={setTrigger} setNewPost={setNewPost} />
 
           <hr/>
-       <PostsComponent trigger={trigger}/>
+       <PostsComponent trigger={trigger} newPost={newPost}/>
 
       </div>
   );

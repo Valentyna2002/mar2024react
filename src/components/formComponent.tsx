@@ -5,7 +5,7 @@ import PostValidator from "../validator/post.validator";
 import {FC} from "react";
 import {IPosts} from "../model/IPosts";
 import {ISetState} from "../model/postsType";
-
+import {postService} from "../services/postService";
 
 
 interface IProps extends PropsWithChildren{
@@ -36,13 +36,15 @@ const FormComponent:FC<IProps>= ({setTrigger,setNewPost}) => {
          setTrigger(prevState => !prevState)
           reset()
 
+        // await postService.create(data)
+
      }
 
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} >
                 <input type="number" placeholder={'UserId'} {...register('userId')} />
-                <input type="number" placeholder={'Id'}{...register('id')} />
+                {/*<input type="number" placeholder={'Id'}{...register('id')} />*/}
                 <input type="text" placeholder={'Title'}{...register('title')}  />
                 <input type="text" placeholder={'body'}{...register('body',)} />
                 <button>send</button>
