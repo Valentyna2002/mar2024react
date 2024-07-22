@@ -6,12 +6,6 @@ const  postValidator= Joi.object({
         "number.positive": 'ID користувача не може бути відємним ',
         "number.integer": 'ID користувача має бути цілим числом'
         }),
-    // id:Joi.number().required().positive().integer().messages({
-    //     "number.base": 'ID  має бути числом',
-    //     "number.empty": 'введіть ID ',
-    //     "number.positive": 'ID не може бути відємним ',
-    //     "number.integer": 'ID має бути цілим числом'
-    // }),
     title:Joi.string().required().messages({
         "string.empty": "Title є обов'язковим"
     }),

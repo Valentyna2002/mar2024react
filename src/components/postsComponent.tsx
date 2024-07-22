@@ -10,19 +10,6 @@ interface IProps  extends PropsWithChildren{
 
 const PostsComponent:FC<IProps> = ({trigger,newPost}) => {
     const [posts, setPosts] = useState<IPosts[]>([])
-    // useEffect(() => {
-    //     const fetchPosts = async () => {
-    //         const { data } = await postService.getAll();
-    //         setPosts(data);
-    //     };
-    //     fetchPosts();
-    // }, [trigger]);
-    //
-    // useEffect(() => {
-    //     if (newPost) {
-    //         setPosts(prevPosts => [newPost, ...prevPosts]);
-    //     }
-    // }, [newPost]);
 
     useEffect(()=>{
         if (newPost){

@@ -36,7 +36,6 @@ const FormComponent:FC<IProps>= ({setTrigger,setNewPost}) => {
          setTrigger(prevState => !prevState)
           reset()
 
-        // await postService.create(data)
 
      }
 
@@ -44,7 +43,6 @@ const FormComponent:FC<IProps>= ({setTrigger,setNewPost}) => {
         <div>
             <form onSubmit={handleSubmit(onSubmit)} >
                 <input type="number" placeholder={'UserId'} {...register('userId')} />
-                {/*<input type="number" placeholder={'Id'}{...register('id')} />*/}
                 <input type="text" placeholder={'Title'}{...register('title')}  />
                 <input type="text" placeholder={'body'}{...register('body',)} />
                 <button>send</button>
