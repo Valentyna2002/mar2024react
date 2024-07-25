@@ -12,6 +12,8 @@ const UsersComponent:FC<IProps> = ({users}) => {
             {users.map(user=>(
                     <li key={user.id} >
                         <Link to={`/users/${user.id}`} state={user}>{user.name}</Link>
+                        <Link to={`/users/${user.id}/posts`} state={user}>
+                            <button>show posts</button></Link>
                     </li>
                 )
             )}

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import {IComment} from "../../models/IComments";
+import {commentsService} from "../../services/apiServices";
 
 const CommentPage = () => {
    let {id} =useParams<{id:string}>()
@@ -8,12 +9,12 @@ const CommentPage = () => {
     let state:IComment=location.state as IComment
     const [comment, setComment] = useState<IComment>()
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments/'+ state.id)
-            .then(res => res.json())
-            .then(res =>{
-                setComment((res))
-            } );
-    }, [id,state]);
+        if (id){
+            commentsService.getOneById((id))
+                .then(data =>{
+                    setComment(data)
+                } );
+        }}, [id,state]);
     return (
         <div>
             Comment {id}

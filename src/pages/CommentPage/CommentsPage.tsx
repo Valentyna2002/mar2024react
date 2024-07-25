@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {IComment} from "../../models/IComments";
 import {Outlet} from "react-router-dom";
 import CommentsComponent from "../../component/CommentsComponent/ComemntsComponent";
+import {commentsService} from "../../services/apiServices";
 
 const CommentsPage:React.FC = () => {
     const [comments, setComments] = useState<IComment[]>([])
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(res => res.json())
+        commentsService.getAll()
             .then(res =>{
                 setComments(res)
             } );

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import {IUser} from "../../models/IUser";
+import {usersService} from "../../services/apiServices";
 
 const UserPage = () => {
    let  {id}= useParams<{id:string}>()
@@ -8,12 +9,12 @@ const UserPage = () => {
    let state:IUser=location.state as IUser
     const [user, setUser] = useState<IUser>()
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users/'+ state.id)
-            .then(res => res.json())
-            .then(res =>{
-                setUser((res))
-            } );
-    }, [id,state]);
+        if (id){
+            usersService.getOneById((id))
+                .then(data =>{
+                    setUser(data)
+                } );
+        }}, [id,state]);
     return (
         <div>
             User {id}

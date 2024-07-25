@@ -10,6 +10,9 @@ import UserPage from "./pages/UserPage/UserPage";
 import PostPage from "./pages/PostPage/PostPage";
 import CommentsPage from "./pages/CommentPage/CommentsPage";
 import CommentPage from "./pages/CommentPage/CommentPage";
+import UserPostPage from "./pages/PostPage/UserPostPage";
+import commentPostPage from "./pages/CommentPage/CommentPostPage";
+import CommentPostPage from "./pages/CommentPage/CommentPostPage";
 
 
 
@@ -23,9 +26,12 @@ let router =createBrowserRouter([
         errorElement:<CustomErrorLayout/>,
         children:[
             {path:'users',element:<UsersPage/>,children:[
-                {path:':id',element:<UserPage/>}]},
+                {path:':id',element:<UserPage/>},
+                    {path:':id/posts',element:<UserPostPage/>}]},
             {path:'posts',element:<PostsPage/>,children:[
-                    {path:':id',element:<PostPage/>}]},
+                    {path:':id',element:<PostPage/>},
+                    {path:':id/comments',element:<CommentPostPage/>}
+                ]},
             {path:'comments',element:<CommentsPage/>,children:[
                     {path:':id',element:<CommentPage/>}]}
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {IPost} from "../../models/IPosts";
 import {useLocation, useParams} from "react-router-dom";
-import UserPage from "../UserPage/UserPage";
+import {postsService} from "../../services/apiServices";
 
 const PostPage = () => {
    let {id} = useParams<{id:string}>()
@@ -9,12 +9,12 @@ const PostPage = () => {
     let state:IPost=location.state as IPost
     const [post, setPost] = useState<IPost>()
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts/'+ state.id)
-            .then(res => res.json())
-            .then(res =>{
-                setPost((res))
-            } );
-    }, [id,state]);
+        if (id){
+            postsService.getOneById((id))
+                .then(data =>{
+                    setPost(data)
+                } );
+        }}, [id,state]);
     return (
         <div>
             Posts {id}

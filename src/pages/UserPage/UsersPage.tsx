@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {IUser} from "../../models/IUser";
 import UsersComponent from "../../component/UsersComponent/UsersComponent";
 import {Outlet} from "react-router-dom";
+import {usersService} from "../../services/apiServices";
 
 const UsersPage:React.FC = () => {
     const [users, setUsers] = useState<IUser[]>([])
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(res => res.json())
+
+        usersService.getAll()
             .then(res =>{
                 setUsers((res))
             } );
